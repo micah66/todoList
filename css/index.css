@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+#title {
+  text-align: center;
+}
+
+#addToDo {
+  width: 90%;
+  height: 40px;
+  background-color: lightblue;
+  opacity: 0.5;
+  font-size: 30px;
+}
+
+.btn {
+  height: 40px;
+  width: 70px;
+}
