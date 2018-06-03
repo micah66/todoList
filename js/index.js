@@ -2,8 +2,8 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      toDoItems: ['todo1', 'todo2', 'todo3'],
-      doneItems: ['done1', 'done2', 'done3']
+      toDoItems: [],
+      doneItems: []
     }
   }
   toggleList (e) {
@@ -23,9 +23,20 @@ class App extends React.Component {
     })
   }
 
+  addToDo () {
+    if (this.state.toDoItems.indexOf(this.inputText.value) === -1 && this.state.doneItems.indexOf(this.inputText.value) === -1) {
+      this.state.toDoItems.push(this.inputText.value)
+      this.setState({
+        toDoItems: this.state.toDoItems
+      })
+    }
+  }
+
   render () {
     return (
       <div>
+        <input ref={input => { this.inputText = input }} type='text' />
+        <button onClick={this.addToDo.bind(this)}>Add ToDo</button>
         <h3>ToDo</h3>
         <List handleClick={this.toggleList.bind(this)} items={this.state.toDoItems} />
         <h3>Done</h3>
